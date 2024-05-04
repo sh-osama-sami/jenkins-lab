@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                git(branch:'main' , url:'https://github.com/sh-osama-sami/jenkins-lab.git' , credentialsId:'git')
+                sh 'rm -rf my_folder'
+                sh 'mkdir my_folder'
+                sh 'touch my_folder/helloworld.txt'
+            }
+        }
+
+        stage('List Files') {
+            steps {
+                // List files in the workspace directory
+                script {
+                    // Navigate to the workspace directory
+                    def workspaceDir = pwd()
+                    dir(workspaceDir) {
+                        // List files in the current directory
+                        sh 'ls -la'
+                    }
+                }
+            }
+        }
+    }
+}
