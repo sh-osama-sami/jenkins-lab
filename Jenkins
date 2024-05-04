@@ -20,6 +20,7 @@ pipeline {
                     dir(workspaceDir) {
                         // List files in the current directory
                         sh 'ls -la'
+                        echo "Running on branch: ${currentBuild.displayName}"
                     }
                 }
             }
