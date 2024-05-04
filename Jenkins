@@ -19,7 +19,7 @@ pipeline {
                     def workspaceDir = pwd()
                     dir(workspaceDir) {
                         // List files in the current directory
-                        echo "Running on branch: ${currentBuild.displayName}"
+                        echo "Running on branch: ${env.BRANCH_NAME}"
                         sh 'ls -la'
                     }
                 }
