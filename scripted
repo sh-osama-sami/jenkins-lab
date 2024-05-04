@@ -1,0 +1,13 @@
+node {
+    stage('Preparation') {
+        // Create a directory named 'my_folder'
+        sh 'mkdir my_folder'
+        
+        // Create a file named 'helloworld.txt' inside 'my_folder'
+        sh 'echo "Hello, World!" > my_folder/helloworld.txt'
+    }
+    stage('Build') {
+        // List files in the 'my_folder' directory
+        sh 'ls -la my_folder'
+    }
+}
