@@ -1,6 +1,7 @@
 node {
     stage('Preparation') {
         // Create a directory named 'my_folder'
+        sh 'rm -rf my_folder'
         sh 'mkdir my_folder'
         
         // Create a file named 'helloworld.txt' inside 'my_folder'
