@@ -19,11 +19,11 @@
    write your build steps 
      mkdir folder
      touch helloworld 
-     
-#################
+
 1- create declarative in jenkins GUI pipeline for your own repo to do "ls"
   uploaded a declarative file on the private repo and used the pipeline from git option to allow it to find the declarative 
   file on the repo 
+  
 2- create scripted in jenkins GUI pipeline for your own repo to do "ls"
   uploaded a scripted file on the private repo and used the pipeline from git option to allow it to find the scripted 
   file on the repo 
