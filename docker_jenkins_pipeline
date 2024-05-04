@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE_NAME = 'jenkins-nodejs-example'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/mahmoud254/jenkins_nodejs_example.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Docker login using credentials
+                    withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                        sh "docker build -f dockerfile . -t ${DOCKER_IMAGE_NAME}:latest"
+                       
+                    }
+
+                    
+                  
+                }
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    
+                   sh "docker run -p 3000:3000 ${DOCKER_IMAGE_NAME}:latest"
+                }
+            }
+        }
+    }
+
+   
+}
