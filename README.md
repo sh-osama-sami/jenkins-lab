@@ -38,14 +38,14 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 - Create a declarative pipeline in Jenkins GUI for your own repo to execute "ls":
 - Upload a declarative file to the private repo
 - Use the **Pipeline from Git** option in Jenkins to locate the declarative file in the repo
-- [Link to declarative pipeline](Jenkins)
+- [Link to Declarative pipeline](Jenkins)
   
 ### 4. Scripted Pipeline
 
 - Create a scripted pipeline in Jenkins GUI for your own repo to execute "ls":
 - Upload a scripted file to the private repo
 - Use the **Pipeline from Git** option in Jenkins to locate the scripted file in the repo
-- [Link to declarative pipeline](scripted)
+- [Link to Scripted pipeline](scripted)
   
 ### 5. Multibranch Pipeline
 
