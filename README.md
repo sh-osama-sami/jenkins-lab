@@ -32,19 +32,21 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
   mkdir folder
   touch helloworld
   ```
-
+  
 ### 3. Declarative Pipeline
 
 - Create a declarative pipeline in Jenkins GUI for your own repo to execute "ls":
 - Upload a declarative file to the private repo
 - Use the **Pipeline from Git** option in Jenkins to locate the declarative file in the repo
-
+- [Link to declarative pipeline](Jenkins)
+  
 ### 4. Scripted Pipeline
 
 - Create a scripted pipeline in Jenkins GUI for your own repo to execute "ls":
 - Upload a scripted file to the private repo
 - Use the **Pipeline from Git** option in Jenkins to locate the scripted file in the repo
-
+- [Link to declarative pipeline](scripted)
+  
 ### 5. Multibranch Pipeline
 
 - Create the same with Jenkinsfile in your branches as a multibranch pipeline:
@@ -67,25 +69,44 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 
 - Create CI/CD for this repository: [jenkins_nodejs_example](https://github.com/mahmoud254/jenkins_nodejs_example.git)
 - Configure a Jenkins pipeline to pull from this repository and execute build and deployment steps
+- [Link to node-pipeline](nodejs_pipeline)
+- ![image](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/5bc32604-787f-4dcb-84a4-d7615cf1a0ec)
+- ![Screenshot from 2024-05-06 01-08-21](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/81961246-8ecb-42ac-9d85-54a01935334f)
+
 
 ## Docker Slave Configuration
 
 ### 1. Dockerfile for Jenkins Slave
 
 - Create a Dockerfile to build an image for Jenkins slave:
-- Include necessary dependencies for running Jenkins jobs
-- Configure SSH server if required
+- Include necessary dependencies for running Jenkins jobs like openjdk , git , docker cli
+- Configure SSH server by installing openssh above Ubuntu base image in the docker file
+- [Link to slave Dockerfile](Dockerfile.slave)
+- Build the image using:
+- ```bash
+  docker build -t slave:latest -f Dockerfile.slave .
+  ```
 
 ### 2. Jenkins Slave Container
 
 - Create a container from the Jenkins slave image and configure SSH:
+- ```bash
+  docker run --name jenkins_slave -v /var/run/docker.sock:/var/run/docker.sock slave:latest
+  ```
 - Ensure SSH access is properly configured for communication with the Jenkins master
+- Go inside the container using:
+- ```bash
+  docker exec -it jenkins_slave bash
+  ```
+- Use cat command to print the content of the private key file and copy it
+
 
 ### 3. Create Jenkins Node
 
-- From the Jenkins master, create a new node with the slave container:
-- Configure the node to connect to the Jenkins master using SSH
-- Set up any necessary environment variables or tools required for the node
+- From the Jenkins master, create a new node with the slave container
+    - In **Launch Method** section select **launch agents via ssh**
+    - Use the private key in the ssh credentials of the node and the ip to connect to the slave server / container
+
 
 ## AWS Slave Configuration
 
