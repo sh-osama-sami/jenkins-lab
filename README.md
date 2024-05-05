@@ -50,12 +50,18 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 - Create the same with Jenkinsfile in your branches as a multibranch pipeline:
 - Include a Jenkinsfile in each branch of your repository with the pipeline configuration
 - Jenkins will automatically detect and create multibranch pipelines for each branch
+![Screenshot from 2024-05-06 00-27-44](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/1d51df37-35fa-4130-8ff5-e994e8af3396)
 
 ### 6. Configure Jenkins Image to Run Docker Commands
 
 - Configure Jenkins image to run Docker commands on your host Docker daemon:
-- Add the Jenkins user to the Docker group on the host machine
+- Create a Dockerfile that is based on the jenkins image in addition to commands that installes docker client
+  [Link to the Dockerfile](Dockerfile)
+- Mount the old container's volume to the new container 
 - Mount the Docker socket into the Jenkins container or use Docker Remote API
+  ```bash
+  docker run -v /var/run/docker.sock:/var/run/docker.sock -v volume:/var/jenkins_home jenkins:lts 
+  ```
 
 ### 7. CI/CD for Repository
 
