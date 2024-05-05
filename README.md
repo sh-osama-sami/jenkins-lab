@@ -5,7 +5,7 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 ## Prerequisites
 
 - Jenkins installed with Docker image:
-- ```bash
+  ```bash
   docker run -d -p 8080:8080 -v my-vol:/var/jenkins_home jenkins/jenkins:lts
   ```
 - Role Based Authorization plugin installed:
