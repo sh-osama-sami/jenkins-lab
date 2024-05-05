@@ -1,0 +1,34 @@
+FROM ubuntu:noble
+# configure instance to be a jetkins slave
+USER root
+RUN mkdir /jenkins_home
+RUN chown 777 /jenkins_home
+RUN apt-get update  && \
+    apt-get install -y openjdk-11-jdk
+
+RUN apt-get install -y openssh-server
+RUN apt-get install -y git
+RUN useradd -ms /bin/bash jenkins
+# install docker client
+RUN apt-get -y install apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add - && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && \
+    apt-get -y install docker-ce -y
+RUN usermod -aG docker jenkins
+RUN mkdir /run/sshd && chmod 755 /run/sshd
+
+# Generate SSH host keys
+RUN ssh-keygen -t rsa -m pem -b 2048
+RUN cat id_rsa.pub > /root/.ssh/authorized_keys
+
+# start openssh server to allow jenkins master to connect to this slave node when container starts
+ENTRYPOINT ["/usr/sbin/sshd", "-D", "-o", "PermitRootLogin=yes"]
+
+# USER jenkins
+WORKDIR /jenkins_home
+
+
