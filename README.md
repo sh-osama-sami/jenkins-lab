@@ -127,12 +127,15 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 
 - Run the same pipeline on the AWS slave:
 - Configure the Jenkins pipeline to use the AWS slave node for executing jobs
+- Configure the docker run stage to forward to port 80 
 - Verify that the pipeline runs successfully on the AWS slave
+- ![image](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/eeac2835-56bb-4911-93c0-f761278b0172)
 
 ### 7. Access Application
 
 - Access the application using the EC2 public IP:
 - Once the pipeline is successfully executed, access the deployed application using the public IP address of the AWS EC2 instance
+![Screenshot from 2024-05-06 04-59-07](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/abd9d60d-ddfd-47f3-9303-dadc642ee7f6)
 
 ## Contributors
 
