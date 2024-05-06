@@ -1,0 +1,42 @@
+---
+- name: Configure Jenkins Slave
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  gather_facts: false
+
+  tasks:
+    # - name: Update apt cache
+    #   apt:
+    #     Update_cache: yes
+        
+
+    - name: Install OpenJDK 11
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Install Git                                     
+      apt:
+        name: git
+        state: present
+
+    - name: Create Jenkins Home Directory
+      file:
+        path: /jenkins_home
+        state: directory
+        owner: root
+        group: root
+        mode: '0777'
+
+    - name: Ensure /run/sshd directory exists
+      file:
+        path: /run/sshd
+        state: directory
+        mode: '0755'
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
