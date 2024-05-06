@@ -6,11 +6,10 @@
   gather_facts: false
 
   tasks:
-    # - name: Update apt cache
-    #   apt:
-    #     Update_cache: yes
+    - name: Update apt cache
+      apt:
+        Update_cache: yes
         
-
     - name: Install OpenJDK 11
       apt:
         name: openjdk-11-jdk
