@@ -113,13 +113,14 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 ### 4. Create AWS Instance
 
 - Create an AWS EC2 instance to be used as a Jenkins slave:
-- Ensure the instance meets the requirements for running Jenkins jobs
-- Note down the public IP address for accessing the instance
+- Note down the public IP address in the ansible inventory file for accessing the instance
+- ![image](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/05b1ef5a-3ce7-48f9-8d2c-d81644e8f439)
 
 ### 5. Ansible Configuration
 
 - Use Ansible to configure the EC2 instance to be a Jenkins slave:
-- Install necessary dependencies and tools required for running Jenkins jobs
+- Install necessary dependencies and tools required for running Jenkins jobs:
+- [Link to ansible file](ec2.yml)
 - Set up SSH access and connection between the Jenkins master and the AWS slave
 
 ### 6. Run Pipeline on AWS Slave
