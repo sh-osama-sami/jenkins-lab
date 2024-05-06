@@ -135,7 +135,7 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 
 - Access the application using the EC2 public IP:
 - Once the pipeline is successfully executed, access the deployed application using the public IP address of the AWS EC2 instance
-![Screenshot from 2024-05-06 04-59-07](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/abd9d60d-ddfd-47f3-9303-dadc642ee7f6)
+- ![Screenshot from 2024-05-06 04-59-07](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/abd9d60d-ddfd-47f3-9303-dadc642ee7f6)
 
 ## Contributors
 
