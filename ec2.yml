@@ -23,17 +23,12 @@
 
     - name: Create Jenkins Home Directory
       file:
-        path: /jenkins_home
+        path: jenkins_home
         state: directory
         owner: root
         group: root
         mode: '0777'
 
-    - name: Ensure /run/sshd directory exists
-      file:
-        path: /run/sshd
-        state: directory
-        mode: '0755'
 
     - name: Install Docker
       apt:
