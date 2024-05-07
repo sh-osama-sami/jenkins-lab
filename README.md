@@ -16,10 +16,6 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
     - [Docker Slave Configuration](#docker-slave-configuration)
     - [AWS Slave Configuration](#aws-slave-configuration)
     - [Integrating Slack with Jenkins](#integrating-slack-with-jenkins)
-        - [Integrate Slack with Jenkins](#integrate-slack-with-jenkins)
-        - [Send Slack Messages on Pipeline Stage Success](#send-slack-messages-on-pipeline-stage-success)
-        - [Install Audit Logs Plugin and Test](#install-audit-logs-plugin-and-test)
-        - [Fork and Dockerize the Django App](#fork-and-dockerize-the-django-app)
 3. [Contributors](#contributors)
 
 ## Prerequisites
