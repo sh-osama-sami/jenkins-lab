@@ -2,6 +2,26 @@
 
 This repository contains a Jenkins pipeline script for hosting a simple website pulled from a private Git repository on an AWS EC2 instance using Docker. The pipeline automates the process of pulling the code, building a Docker image, and running the Docker container on a remote EC2 instance.
 
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Steps](#steps)
+    - [User Management](#user-management)
+    - [Freestyle Pipeline](#freestyle-pipeline)
+    - [Declarative Pipeline](#declarative-pipeline)
+    - [Scripted Pipeline](#scripted-pipeline)
+    - [Multibranch Pipeline](#multibranch-pipeline)
+    - [Configure Jenkins Image to Run Docker Commands](#configure-jenkins-image-to-run-docker-commands)
+    - [CI/CD for Repository](#cicd-for-repository)
+    - [Docker Slave Configuration](#docker-slave-configuration)
+    - [AWS Slave Configuration](#aws-slave-configuration)
+    - [Integrating Slack with Jenkins](#integrating-slack-with-jenkins)
+        - [Integrate Slack with Jenkins](#integrate-slack-with-jenkins)
+        - [Send Slack Messages on Pipeline Stage Success](#send-slack-messages-on-pipeline-stage-success)
+        - [Install Audit Logs Plugin and Test](#install-audit-logs-plugin-and-test)
+        - [Fork and Dockerize the Django App](#fork-and-dockerize-the-django-app)
+3. [Contributors](#contributors)
+
 ## Prerequisites
 
 - Jenkins installed with Docker image:
