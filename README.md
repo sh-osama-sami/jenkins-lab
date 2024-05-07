@@ -151,7 +151,7 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
   - Scroll down to the **Global Slack Notifier Settings** section
   - Add your Slack workspace URL and credentials
   
-## Sending Slack Messages on Pipeline Stage Success
+
 
 ### 2. Send Slack Messages on Pipeline Stage Success
 
@@ -177,7 +177,6 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
     }
     ```
 
-## Installing Audit Logs Plugin
 
 ### 3. Install Audit Logs Plugin and Test
 
@@ -190,7 +189,7 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
   - Perform various actions in Jenkins such as job creation, configuration changes, etc.
   - Verify that these actions are logged in the Audit Trail
   
-## Forking and Dockerizing the Django App
+
 
 ### 4. Fork and Dockerize the Django App
 
