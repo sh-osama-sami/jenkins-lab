@@ -165,7 +165,11 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 - Configure Slack integration:
   - Navigate to **Manage Jenkins -> Configure System**
   - Scroll down to the **Global Slack Notifier Settings** section
-  - Add your Slack workspace URL and credentials
+  - Add your Slack workspace URL and credentials that you get from slack console by adding jenkins app
+  
+  
+
+
   
 
 
@@ -184,7 +188,7 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
                 }
                 post {
                     success {
-                        slackSend(channel: '#channel-name', message: 'Build successful!')
+                        slackSend(channel: '#channel-name', message: 'Build successful ${BUILD_URL}')
                     }
                 }
             }
@@ -192,6 +196,8 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
         }
     }
     ```
+    - ![image](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/db17055e-33e0-46a5-ba40-607012f1c57b)
+    - ![image](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/a48d3339-e0ff-48ee-aa49-0c6ad7b7e109)
 
 
 ### 3. Install Audit Logs Plugin and Test
@@ -204,11 +210,12 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
 - Test the plugin:
   - Perform various actions in Jenkins such as job creation, configuration changes, etc.
   - Verify that these actions are logged in the Audit Trail
+  - ![image](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/25bc6d37-0485-43ec-8dd3-c11c7a1285e1)
+
   
 
 
 ### 4. Fork and Dockerize the Django App
-
 - Fork the repository [Booster_CI_CD_Project](https://github.com/mahmoud254/Booster_CI_CD_Project) to your GitHub account
   
 - Dockerize the Django app:
@@ -259,6 +266,10 @@ This repository contains a Jenkins pipeline script for hosting a simple website 
           - name: Push Docker image
             run: docker push yourdockerhubusername/appname
     ```
+  - ![image](https://github.com/sh-osama-sami/jenkins-nodejs/assets/85364511/7de68284-c6b6-4e4e-aed2-f78a28a2a219)
+    
+  - This is the result repo [repo](https://github.com/sh-osama-sami/Booster_CI_CD_Project)
+  - This is the Dockerfile [dockerfile](https://github.com/sh-osama-sami/Booster_CI_CD_Project/blob/master/Dockerfile)
 
 
 
